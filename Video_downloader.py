@@ -2,11 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 import youtube_dl
 import os
-from Tkinter import * 
-import tkFileDialog
-
-
-
 
 st.markdown("<h1 style = 'text-align:center; color:orange;'>Welcome to Our page </h1>", unsafe_allow_html=True)
 st.markdown("<h1 style = 'text-align:center; color:white;'>Here you can download Youtube Instagram Facebook Video and Audio </h1>", unsafe_allow_html=True)
@@ -27,8 +22,7 @@ if option == " ":
     st.write("choose Video or Audio")
 if option == "Video":
     try:
-        file_path_string = tkFileDialog.askopenfilename()
-        #os.chdir('.')
+        os.chdir('Desktop')
         ydl_opts = {'format': 'best',
             'quiet': True,}
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
@@ -38,7 +32,7 @@ if option == "Video":
         print(e)
 if option == "Audio":
     try:
-        file_path_string = tkFileDialog.askopenfilename()
+        os.chdir('Desktop')
         ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [
